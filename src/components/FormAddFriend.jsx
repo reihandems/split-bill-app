@@ -1,4 +1,9 @@
+import { useState } from "react";
+
 export default function FormAddFriend() {
+    const [name, setName] = useState("")
+    const [image, setImage] = useState("https://i.pravatar.cc/150?img=1");
+
     return (
       <>
         {/* Open the modal using document.getElementById('ID').showModal() method */}
@@ -16,6 +21,19 @@ export default function FormAddFriend() {
                 type="text"
                 className="input w-full"
                 placeholder="Ex: John Doe"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </fieldset>
+            
+            <fieldset className="fieldset">
+              <legend className="fieldset-legend">Image</legend>
+              <input
+                type="text"
+                className="input w-full"
+                placeholder="Ex: John Doe"
+                value={image}
+                onChange={(e) => setImage(e.target.value)}
               />
             </fieldset>
             
