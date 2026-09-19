@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "Trevor",
+        "image": "https://i.pravatar.cc/150?img=1",
+        "balance": 0
+    },
+    {
+        "id": 2,
+        "name": "Michael",
+        "image": "https://i.pravatar.cc/150?img=2",
+        "balance": 0
+    },
+    {
+        "id": 3,
+        "name": "Franklin",
+        "image": "https://i.pravatar.cc/150?img=3",
+        "balance": 0
+    }
+]
