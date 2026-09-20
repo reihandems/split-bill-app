@@ -13,8 +13,23 @@ function App() {
     setFriends((friends) => [...friends, friend])
   }
 
-  function handleSplitBill(friend) {
+  function handleSelect(friend) {
     setSelectedFriend(friend);
+  }
+
+  function handleSplitBill(value) {
+    setFriends(
+      friends.map((friend) => {
+        if (friend.id === selectedFriend?.id) {
+          return {
+            ...friend,
+            balance: friend.balance + value
+          }
+        }
+
+        return friend;
+      })
+    )
   }
 
   return (
@@ -23,8 +38,13 @@ function App() {
         <div className="text-4xl font-bold mb-5 text-center">
           Split Bill App
         </div>
-        <Friendlist friends={friends} handleSplitBill={handleSplitBill} selected={selectedFriend} />
-        <FormAddFriend handleAddFriend={handleAddFriend}  />
+        <Friendlist
+          friends={friends}
+          handleSelect={handleSelect}
+          selected={selectedFriend}
+          handleSplitBill={handleSplitBill}
+        />
+        <FormAddFriend handleAddFriend={handleAddFriend} />
       </div>
     </>
   );

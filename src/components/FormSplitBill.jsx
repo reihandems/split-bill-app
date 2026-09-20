@@ -1,12 +1,17 @@
 import { useState } from "react";
 
-export default function FormSplitBill({ friend, handleSplitBill, selected }) {
+export default function FormSplitBill({ friend, handleSelect, selected, handleSplitBill }) {
   // const isSelected = selected?.id === friend.id;
 
   const [amount, setAmount] = useState("");
   const [myExpense, setMyExpense] = useState("");
-  const [whoIsPay, setWhoIsPay] = useState("user")
+  const [whoIsPay, setWhoIsPay] = useState("user");
   const friendExpense = amount && amount - myExpense;
+
+  function handleSubmit() {
+    if (!amount || !myExpense) return;
+    handleSplitBill(whoIsPay === "user" ? friendExpense : -myExpense)
+  }
 
   return (
     <>
@@ -15,14 +20,16 @@ export default function FormSplitBill({ friend, handleSplitBill, selected }) {
         className="btn mt-3 w-full sm:w-auto"
         onClick={() => {
           document.getElementById("form_split").showModal();
-          handleSplitBill(friend)
+          handleSelect(friend);
         }}
       >
         Select
       </button>
       <dialog id="form_split" className="modal modal-bottom sm:modal-middle">
         <div className="modal-box">
-          <div className="text-xl font-bold">Split Bill with {selected.name}</div>
+          <div className="text-xl font-bold">
+            Split Bill with {selected.name}
+          </div>
           <div className="divider my-2"></div>
 
           <fieldset className="fieldset">
@@ -48,7 +55,9 @@ export default function FormSplitBill({ friend, handleSplitBill, selected }) {
           </fieldset>
 
           <fieldset className="fieldset">
-            <legend className="fieldset-legend">{selected.name}'s Expense</legend>
+            <legend className="fieldset-legend">
+              {selected.name}'s Expense
+            </legend>
             <input
               type="text"
               className="input w-full"
@@ -60,7 +69,11 @@ export default function FormSplitBill({ friend, handleSplitBill, selected }) {
 
           <fieldset className="fieldset">
             <legend className="fieldset-legend">Who Pays?</legend>
-            <select className="select w-full" value={whoIsPay} onChange={(e) => setWhoIsPay(e.target.value)}>
+            <select
+              className="select w-full"
+              value={whoIsPay}
+              onChange={(e) => setWhoIsPay(e.target.value)}
+            >
               <option disabled={true}>Choose who pays for the bill</option>
               <option value="user">You</option>
               <option value="friend">{selected.name}</option>
@@ -71,7 +84,7 @@ export default function FormSplitBill({ friend, handleSplitBill, selected }) {
             <form method="dialog">
               {/* if there is a button in form, it will close the modal */}
               <div className="flex gap-2">
-                <button className="btn bg-black">Save</button>
+                <button className="btn bg-black" onClick={handleSubmit}>Save</button>
                 <button className="btn">Close</button>
               </div>
             </form>
