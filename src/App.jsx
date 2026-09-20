@@ -7,9 +7,14 @@ import FormAddFriend from "./components/FormAddFriend";
 
 function App() {
   const [friends, setFriends] = useState(FriendsData)
+  const [selectedFriend, setSelectedFriend] = useState({})
 
   function handleAddFriend(friend) {
     setFriends((friends) => [...friends, friend])
+  }
+
+  function handleSplitBill(friend) {
+    setSelectedFriend(friend);
   }
 
   return (
@@ -18,7 +23,7 @@ function App() {
         <div className="text-4xl font-bold mb-5 text-center">
           Split Bill App
         </div>
-        <Friendlist friends={friends} />
+        <Friendlist friends={friends} handleSplitBill={handleSplitBill} selected={selectedFriend} />
         <FormAddFriend handleAddFriend={handleAddFriend}  />
       </div>
     </>
