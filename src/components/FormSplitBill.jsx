@@ -4,11 +4,11 @@ export default function FormSplitBill() {
         {/* Open the modal using document.getElementById('ID').showModal() method */}
         <button
           className="btn mt-3 w-full sm:w-auto"
-          onClick={() => document.getElementById("form_add").showModal()}
+          onClick={() => document.getElementById("form_split").showModal()}
         >
           Select
         </button>
-        <dialog id="form_add" className="modal modal-bottom sm:modal-middle">
+        <dialog id="form_split" className="modal modal-bottom sm:modal-middle">
           <div className="modal-box">
             <div className="text-xl font-bold">Split Bill with X</div>
             <div className="divider my-2"></div>
