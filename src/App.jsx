@@ -6,11 +6,10 @@ import Friendlist from "./components/Friendlist";
 import FormAddFriend from "./components/FormAddFriend";
 
 function App() {
-  const [newFriend, setNewFriend] = useState(FriendsData)
-  const friends = FriendsData;
+  const [friends, setFriends] = useState(FriendsData)
 
   function handleAddFriend(friend) {
-    setNewFriend((newFriend) => [...newFriend, friend])
+    setFriends((friends) => [...friends, friend])
   }
 
   return (
@@ -20,7 +19,7 @@ function App() {
           Split Bill App
         </div>
         <Friendlist friends={friends} />
-        <FormAddFriend handleAddFriend={handleAddFriend} newFriend={newFriend} />
+        <FormAddFriend handleAddFriend={handleAddFriend}  />
       </div>
     </>
   );

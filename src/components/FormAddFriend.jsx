@@ -1,8 +1,24 @@
 import { useState } from "react";
 
-export default function FormAddFriend() {
+export default function FormAddFriend({handleAddFriend}) {
     const [name, setName] = useState("")
-    const [image, setImage] = useState("https://i.pravatar.cc/150?img=1");
+    const [image, setImage] = useState("https://i.pravatar.cc/150");
+    
+    function handleSubmit(e) {
+      e.preventDefault();
+
+      const id = crypto.randomUUID();
+      // console.log(id);
+      const newFriend = {
+        id: id,
+        name: name,
+        image: `${image}?=${id}`,
+        balance: 0
+      }
+
+      handleAddFriend(newFriend);
+      setName("");
+    }
 
     return (
       <>
@@ -15,33 +31,35 @@ export default function FormAddFriend() {
         </button>
         <dialog id="form_add" className="modal modal-bottom sm:modal-middle">
           <div className="modal-box">
-            <fieldset className="fieldset">
-              <legend className="fieldset-legend">Friend's Name</legend>
-              <input
-                type="text"
-                className="input w-full"
-                placeholder="Ex: John Doe"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-            </fieldset>
-            
-            <fieldset className="fieldset">
-              <legend className="fieldset-legend">Image</legend>
-              <input
-                type="text"
-                className="input w-full"
-                placeholder="Ex: John Doe"
-                value={image}
-                onChange={(e) => setImage(e.target.value)}
-              />
-            </fieldset>
+            <form action="" onSubmit={handleSubmit}>
+              <fieldset className="fieldset">
+                <legend className="fieldset-legend">Friend's Name</legend>
+                <input
+                  type="text"
+                  className="input w-full"
+                  placeholder="Ex: John Doe"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </fieldset>
+              
+              <fieldset className="fieldset">
+                <legend className="fieldset-legend">Image</legend>
+                <input
+                  type="text"
+                  className="input w-full"
+                  placeholder="Ex: John Doe"
+                  value={image}
+                  onChange={(e) => setImage(e.target.value)}
+                />
+              </fieldset>
+            </form>
             
             <div className="modal-action">
               <form method="dialog">
                 {/* if there is a button in form, it will close the modal */}
                 <div className="flex gap-2">
-                  <button className="btn bg-black">Add New</button>
+                  <button className="btn bg-black" onClick={handleSubmit}>Add New</button>
                   <button className="btn">Close</button>
                 </div>
               </form>
