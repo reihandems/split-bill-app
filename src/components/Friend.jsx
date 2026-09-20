@@ -12,17 +12,17 @@ export default function Friend({ friend, handleSelect, selected, handleSplitBill
             </div>
           </div>
 
-          <div className="flex flex-col gap-1 max-w-lg">
+          <div className="flex flex-col gap-1 max-w-60">
             <div className="name">{friend.name}</div>
             <div className="balance">
               {friend.balance < 0 && (
-                <p className="text-rose-500">
+                <p className="text-rose-500 wrap-break-words">
                   You have Rp {friend.balance.toLocaleString("id-ID")} debt to{" "}
                   {friend.name}
                 </p>
               )}
               {friend.balance > 0 && (
-                <p className="text-green-500">
+                <p className="text-green-500 text-wrap">
                   {friend.name} owe you Rp {friend.balance.toLocaleString("id-ID")}
                 </p>
               )}
