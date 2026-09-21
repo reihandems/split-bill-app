@@ -1,4 +1,4 @@
-export default function DeleteModal({onDeleteAll}) {
+export default function DeleteAll({onDeleteAll}) {
     return (
       <>
         {/* Open the modal using document.getElementById('ID').showModal() method */}

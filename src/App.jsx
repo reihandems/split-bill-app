@@ -4,7 +4,7 @@ import FriendsData from "./friends.json"
 
 import Friendlist from "./components/Friendlist";
 import FormAddFriend from "./components/FormAddFriend";
-import DeleteModal from "./components/DeleteModal";
+import DeleteAll from "./components/DeleteAll";
 
 function App() {
   const [friends, setFriends] = useState(FriendsData)
@@ -54,7 +54,7 @@ function App() {
         <div className="flex gap-2 items-center mt-3 flex-wrap">
           <FormAddFriend handleAddFriend={handleAddFriend} />
 
-          <DeleteModal onDeleteAll={handleDeleteAll} />
+          <DeleteAll onDeleteAll={handleDeleteAll} />
         </div>
       </div>
     </>
