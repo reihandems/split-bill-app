@@ -46,8 +46,13 @@ function App() {
   return (
     <>
       <div className="font-mono max-w-xl mx-auto mt-12 p-8 shadow-sm/15 rounded-t-2xl sm:rounded-2xl bg-neutral-800">
-        <div className="text-4xl font-bold mb-5 text-center">
+        <div className="text-4xl font-bold mb-3 text-center">
           Split Bill App
+        </div>
+
+        <div className="text-sm text-neutral-500 text-center mb-5">
+          An app that ease your hangout expense with <br /> friends, family, or
+          lover
         </div>
 
         <Friendlist
@@ -61,6 +66,10 @@ function App() {
         <div className="flex gap-2 items-center mt-3 flex-wrap">
           <FormAddFriend handleAddFriend={handleAddFriend} />
           <DeleteAll onDeleteAll={handleDeleteAll} />
+        </div>
+
+        <div className="text-sm text-neutral-500 text-center mt-5">
+          Made by Reihan D. Challada
         </div>
       </div>
     </>
