@@ -1,6 +1,7 @@
 import FormSplitBill from "./FormSplitBill";
+import DeleteItem from "./DeleteItem";
 
-export default function Friend({ friend, handleSelect, selected, handleSplitBill }) {
+export default function Friend({ friend, handleSelect, selected, handleSplitBill, onDeleteItem }) {
 
   return (
     <>
@@ -12,7 +13,7 @@ export default function Friend({ friend, handleSelect, selected, handleSplitBill
             </div>
           </div>
 
-          <div className="flex flex-col gap-1 max-w-60">
+          <div className="flex flex-col gap-1">
             <div className="name">{friend.name}</div>
             <div className="balance">
               {friend.balance < 0 && (
@@ -23,7 +24,8 @@ export default function Friend({ friend, handleSelect, selected, handleSplitBill
               )}
               {friend.balance > 0 && (
                 <p className="text-green-500 text-wrap">
-                  {friend.name} owe you Rp {friend.balance.toLocaleString("id-ID")}
+                  {friend.name} owe you Rp{" "}
+                  {friend.balance.toLocaleString("id-ID")}
                 </p>
               )}
               {friend.balance === 0 && (
@@ -33,12 +35,16 @@ export default function Friend({ friend, handleSelect, selected, handleSplitBill
           </div>
         </div>
 
-        <FormSplitBill
-          handleSelect={handleSelect}
-          friend={friend}
-          selected={selected}
-          handleSplitBill={handleSplitBill}
-        />
+        <div className="flex gap-2 items-center w-full sm:w-auto">
+          <FormSplitBill
+            handleSelect={handleSelect}
+            friend={friend}
+            selected={selected}
+            handleSplitBill={handleSplitBill}
+          />
+
+          <DeleteItem friend={friend} onDeleteItem={onDeleteItem} handleSelect={handleSelect} />
+        </div>
       </div>
     </>
   );

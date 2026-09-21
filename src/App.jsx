@@ -19,7 +19,7 @@ function App() {
   }
 
   function handleSplitBill(value) {
-    setFriends(
+    setFriends( 
       friends.map((friend) => {
         if (friend.id === selectedFriend?.id) {
           return {
@@ -30,6 +30,12 @@ function App() {
 
         return friend;
       })
+    )
+  }
+  
+  function handleDeleteItem() {
+    setFriends(
+      friends.filter((friend) => friend.id !== selectedFriend?.id)
     )
   }
 
@@ -49,11 +55,11 @@ function App() {
           handleSelect={handleSelect}
           selected={selectedFriend}
           handleSplitBill={handleSplitBill}
+          onDeleteItem={handleDeleteItem}
         />
 
         <div className="flex gap-2 items-center mt-3 flex-wrap">
           <FormAddFriend handleAddFriend={handleAddFriend} />
-
           <DeleteAll onDeleteAll={handleDeleteAll} />
         </div>
       </div>

@@ -17,7 +17,7 @@ export default function FormSplitBill({ friend, handleSelect, selected, handleSp
     <>
       {/* Open the modal using document.getElementById('ID').showModal() method */}
       <button
-        className="btn mt-3 w-full sm:w-auto"
+        className="btn w-full sm:w-auto flex-1"
         onClick={() => {
           document.getElementById("form_split").showModal();
           handleSelect(friend);
