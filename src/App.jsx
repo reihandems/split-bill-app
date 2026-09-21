@@ -10,7 +10,7 @@ function App() {
   const [selectedFriend, setSelectedFriend] = useState({})
 
   function handleAddFriend(friend) {
-    setFriends((friends) => [...friends, friend])
+    setFriends(() => [...friends, friend])
   }
 
   function handleSelect(friend) {
@@ -31,10 +31,9 @@ function App() {
       })
     )
   }
-
   return (
     <>
-      <div className="font-mono flex flex-col items-center justify-center min-h-screen p-8">
+      <div className="font-mono max-w-xl mx-auto mt-12 p-8 shadow-sm/15 rounded-t-2xl sm:rounded-2xl bg-neutral-800">
         <div className="text-4xl font-bold mb-5 text-center">
           Split Bill App
         </div>

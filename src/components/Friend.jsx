@@ -4,7 +4,7 @@ export default function Friend({ friend, handleSelect, selected, handleSplitBill
 
   return (
     <>
-      <div className="flex gap-4 my-2 bg-zinc-900 p-6 rounded-xl items-center justify-between w-auto sm:w-120 flex-wrap">
+      <div className="flex gap-4 my-2 bg-zinc-900 p-6 rounded-xl items-center justify-between w-auto sm:w-full flex-wrap">
         <div className="flex gap-3">
           <div className="avatar">
             <div className="w-14 rounded-full">
