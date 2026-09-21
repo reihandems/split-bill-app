@@ -24,7 +24,7 @@ export default function FormAddFriend({handleAddFriend}) {
       <>
         {/* Open the modal using document.getElementById('ID').showModal() method */}
         <button
-          className="btn bg-zinc-900 mt-3 w-full"
+          className="btn bg-zinc-900 flex-1"
           onClick={() => document.getElementById("form_add").showModal()}
         >
           + Add Friend
