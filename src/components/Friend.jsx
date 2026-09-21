@@ -13,7 +13,7 @@ export default function Friend({ friend, handleSelect, selected, handleSplitBill
             </div>
           </div>
 
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-1 max-w-58">
             <div className="name">{friend.name}</div>
             <div className="balance">
               {friend.balance < 0 && (
