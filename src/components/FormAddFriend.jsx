@@ -4,8 +4,7 @@ export default function FormAddFriend({handleAddFriend}) {
     const [name, setName] = useState("")
     const [image, setImage] = useState("https://i.pravatar.cc/150");
     
-    function handleSubmit(e) {
-      e.preventDefault();
+    function handleSubmit() {
 
       const id = crypto.randomUUID();
       // console.log(id);
